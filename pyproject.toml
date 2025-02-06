@@ -10,9 +10,9 @@ homepage = "https://github.com/drforse/aiotrenergy"
 repository = "https://github.com/drforse/aiotrenergy"
 
 [tool.poetry.dependencies]
-python = "^3.12"
-pydantic = "^2.10.6"
+python = "^3.10"
 httpx = {extras = ["http2"], version = "^0.28.1"}
+pydantic = "^2.7.0"
 
 
 [build-system]
