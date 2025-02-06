@@ -33,9 +33,7 @@ class TrenergyClient:
     async def request(self, request: TrenergyRequest) -> TrenergyResponse:
         headers = {"Authorization": f"Bearer {self.api_key}"}
         params = request.params()
-        print(f"{params=}")
         url = self.base_url.join(request.__api_path__.format(**params.path))
-        print(f"{url=}")
         try:
             response = await self.httpx_client.request(
                 request.__rest_method__.value,
@@ -49,7 +47,6 @@ class TrenergyClient:
 
         try:
             result = response.json()
-            print(f"{result=}")
         except JSONDecodeError as e:
             try:
                 response.raise_for_status()
@@ -65,5 +62,4 @@ class TrenergyClient:
         if status is False:
             raise TrenergyStatusError
 
-        print(f"{result=}")
         return request.__response__.model_validate(result)

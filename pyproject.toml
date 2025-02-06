@@ -1,9 +1,13 @@
 [tool.poetry]
 name = "aiotrenergy"
-version = "0.0.1"
-description = ""
+version = "0.0.4"
+description = "Async python wrapper for tr.energy api"
 authors = ["drforse <george.lifeslice@gmail.com>"]
 readme = "README.md"
+
+[tool.poetry.urls]
+homepage = "https://github.com/drforse/aiotrenergy"
+repository = "https://github.com/drforse/aiotrenergy"
 
 [tool.poetry.dependencies]
 python = "^3.12"
