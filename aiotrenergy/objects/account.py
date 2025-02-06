@@ -1,4 +1,5 @@
 import datetime
+import decimal
 from typing import Annotated
 
 from pydantic import HttpUrl, Field, AfterValidator, BeforeValidator
@@ -21,7 +22,7 @@ class Account(TrenergyObject):
     is_banned: bool
     balance_restricted: bool
     photo: HttpUrl
-    balance: int
+    balance: decimal.Decimal
     reinvestment: str | None = None
     stakes_sum: int
     stakes_profit: int
