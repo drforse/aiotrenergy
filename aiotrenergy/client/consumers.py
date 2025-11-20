@@ -16,7 +16,7 @@ from aiotrenergy.requests import (
     ConsumersActivateAddressRequest,
     ConsumersResetOrderValidityRequest,
     StoreDelayedConsumersRequest,
-    ConsumersSummaryRequest)
+    ConsumersSummaryRequest, ConsumersCreateAndActivateRequest)
 from aiotrenergy.responses import (
     ConsumersIndexResponse,
     ConsumersCreateResponse,
@@ -30,7 +30,7 @@ from aiotrenergy.responses import (
     ConsumersActivateAddressResponse,
     ConsumersResetOrderValidityResponse,
     StoreDelayedConsumersResponse,
-    ConsumersSummaryResponse)
+    ConsumersSummaryResponse, ConsumersCreateAndActivateResponse)
 
 
 
@@ -61,6 +61,25 @@ class Consumers:
             address=address,
             auto_renewal=auto_renewal,
             consumption_type=consumption_type,
+            resource_amount=resource_amount,
+            name=name,
+            webhook_url=webhook_url
+        )
+        return await request.emit(self.client)
+
+    async def create_and_activate(
+            self,
+            payment_period: int,
+            address: str,
+            auto_renewal: bool,
+            resource_amount: int,
+            name: str,
+            webhook_url: str = None
+    ) -> ConsumersCreateAndActivateResponse:
+        request = ConsumersCreateAndActivateRequest(
+            payment_period=payment_period,
+            address=address,
+            auto_renewal=auto_renewal,
             resource_amount=resource_amount,
             name=name,
             webhook_url=webhook_url

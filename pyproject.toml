@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "aiotrenergy"
-version = "0.0.8"
+version = "0.0.9"
 description = "Async python wrapper for tr.energy api"
 authors = ["drforse <george.lifeslice@gmail.com>"]
 readme = "README.md"

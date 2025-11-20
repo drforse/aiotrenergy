@@ -3,6 +3,7 @@ from .activate_address import ConsumersActivateAddressResponse
 from .consumer_blockchain_energy import ConsumersBlockchainEnergyResponse
 from .consumers_summary import ConsumersSummaryResponse
 from .create import ConsumersCreateResponse
+from .create_and_activate import ConsumersCreateAndActivateResponse
 from .deactivate import ConsumersDeactivateResponse
 from .destroy import ConsumersDestroyResponse
 from .index import ConsumersIndexResponse
