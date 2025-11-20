@@ -1,9 +1,7 @@
 from .activate import ConsumersActivateResponse
 from .activate_address import ConsumersActivateAddressResponse
-from .address_report import ConsumersAddressReportResponse
 from .consumer_blockchain_energy import ConsumersBlockchainEnergyResponse
 from .consumers_summary import ConsumersSummaryResponse
-from .consumption_stats import ConsumptionStatsResponse
 from .create import ConsumersCreateResponse
 from .deactivate import ConsumersDeactivateResponse
 from .destroy import ConsumersDestroyResponse
@@ -12,5 +10,4 @@ from .mass_top_up_trx import ConsumersMassTopUpTrxResponse
 from .reset_order_validity import ConsumersResetOrderValidityResponse
 from .show import ConsumersShowResponse
 from .store_delayed_consumers import StoreDelayedConsumersResponse
-from .toggle_auto_renewal import ConsumersToggleAutoRenewalResponse
 from .update import ConsumersUpdateResponse

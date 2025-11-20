@@ -11,15 +11,12 @@ from aiotrenergy.requests import (
     ConsumersDeactivateRequest,
     ConsumersUpdateRequest,
     ConsumersDestroyRequest,
-    ConsumersToggleAutoRenewalRequest,
     ConsumersBlockchainEnergyRequest,
     ConsumersMassTopUpTrxRequest,
     ConsumersActivateAddressRequest,
     ConsumersResetOrderValidityRequest,
     StoreDelayedConsumersRequest,
-    ConsumersSummaryRequest,
-    ConsumersAddressReportRequest,
-    ConsumptionStatsRequest)
+    ConsumersSummaryRequest)
 from aiotrenergy.responses import (
     ConsumersIndexResponse,
     ConsumersCreateResponse,
@@ -28,15 +25,12 @@ from aiotrenergy.responses import (
     ConsumersDeactivateResponse,
     ConsumersUpdateResponse,
     ConsumersDestroyResponse,
-    ConsumersToggleAutoRenewalResponse,
     ConsumersBlockchainEnergyResponse,
     ConsumersMassTopUpTrxResponse,
     ConsumersActivateAddressResponse,
     ConsumersResetOrderValidityResponse,
     StoreDelayedConsumersResponse,
-    ConsumersSummaryResponse,
-    ConsumersAddressReportResponse,
-    ConsumptionStatsResponse)
+    ConsumersSummaryResponse)
 
 
 
@@ -108,10 +102,6 @@ class Consumers:
         request = ConsumersDestroyRequest(consumer_id=consumer_id)
         return await request.emit(self.client)
 
-    async def toggle_auto_renewal(self, auto_renewal: bool, consumers: list[int]) -> ConsumersToggleAutoRenewalResponse:
-        request = ConsumersToggleAutoRenewalRequest(auto_renewal=auto_renewal, consumers=consumers)
-        return await request.emit(self.client)
-
     async def consumer_blockchain_energy(self, consumer_id: int) -> ConsumersBlockchainEnergyResponse:
         request = ConsumersBlockchainEnergyRequest(consumer_id=consumer_id)
         return await request.emit(self.client)
@@ -144,31 +134,3 @@ class Consumers:
     async def consumers_summary(self) -> ConsumersSummaryResponse:
         request = ConsumersSummaryRequest()
         return await request.emit(self.client)
-
-    async def address_report(
-            self,
-            address: str,
-            from_date: datetime.date = None,
-            to_date: datetime.date = None
-    ) -> ConsumersAddressReportResponse:
-        request = ConsumersAddressReportRequest(address=address, from_date=from_date, to_date=to_date)
-        return await request.emit(self.client)
-
-    async def consumption_stats(
-            self,
-            from_date: datetime.date,
-            to_date: datetime.date,
-            per_page: int = None,
-            page: int = None
-    ) -> ConsumptionStatsResponse:
-        request = ConsumptionStatsRequest(
-            from_date=from_date,
-            to_date=to_date,
-            per_page=per_page,
-            page=page
-        )
-        return await request.emit(self.client)
-
-
-
-

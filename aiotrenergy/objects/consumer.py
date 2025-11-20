@@ -16,6 +16,7 @@ class Order(TrenergyObject):
     created_at: datetime.datetime
     updated_at: datetime.datetime
     valid_until: datetime.datetime
+    tx_ids: list[str] | None = None
 
 
 class Consumer(TrenergyObject):
@@ -24,7 +25,6 @@ class Consumer(TrenergyObject):
     address: str
     resource_amount: int
     creation_type: CreationType
-    consumption_type: ConsumptionType
     payment_period: int
     auto_renewal: bool
     resource_consumptions: int | None = None

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "aiotrenergy"
-version = "0.0.4"
+version = "0.0.7"
 description = "Async python wrapper for tr.energy api"
 authors = ["drforse <george.lifeslice@gmail.com>"]
 readme = "README.md"
@@ -11,8 +11,8 @@ repository = "https://github.com/drforse/aiotrenergy"
 
 [tool.poetry.dependencies]
 python = "^3.10"
+pydantic = "^2.10.6"
 httpx = {extras = ["http2"], version = "^0.28.1"}
-pydantic = "^2.7.0"
 
 
 [build-system]

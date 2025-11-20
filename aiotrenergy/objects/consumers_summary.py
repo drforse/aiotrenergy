@@ -4,8 +4,6 @@ from aiotrenergy.objects.base import TrenergyObject
 
 
 class ConsumersSummary(TrenergyObject):
-    balance: decimal.Decimal
-    credit_limit: int
     total_count: int
     total_energy_consumption: int
     total_received_energy: int
